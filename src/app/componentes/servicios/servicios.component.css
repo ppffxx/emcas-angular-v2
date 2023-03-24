@@ -52,12 +52,14 @@
     width: 300px;
     height: 80px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .boton-detalle:hover {
     background-color: white;
     color: black;
     border-color: white;
+    text-decoration: none;
 }
 
 

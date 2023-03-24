@@ -39,4 +39,9 @@ export class NavbarComponent {
   previousScroll = scroll;
   }
 
+
+  cerrarSesion() {
+    localStorage.removeItem('idUsuario');
+  }
+
 }

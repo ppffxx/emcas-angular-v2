@@ -7,10 +7,16 @@ import { Observable } from 'rxjs';
 })
 export class ServServicioService {
 
+  
+
   constructor(private http: HttpClient) {}
 
   getServicios(): Observable<any> {
     return this.http.get('http://localhost:8080/servicios/todos');
+  }
+
+  getServicioDetalle(idServicio:number): Observable<any> {
+    return this.http.get('http://localhost:8080/servicios/'+idServicio+'')
   }
 
 }

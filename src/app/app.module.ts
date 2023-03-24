@@ -26,8 +26,8 @@ const appRutas:Routes= [
   {path: 'perfil', component:PerfilComponent},
   {path: 'servicios', component:ServiciosComponent},
   {path: 'contacto', component:ContactoComponent},
-  {path: 'detalle-servicio', component:DetalleServicioComponent},
-  {path: 'reserva', component:ReservaComponent}
+  {path: 'detalle-servicio/:id', component:DetalleServicioComponent},
+  {path: 'reserva/:id', component:ReservaComponent}
 ]
 
 @NgModule({

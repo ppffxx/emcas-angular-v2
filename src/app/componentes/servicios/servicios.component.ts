@@ -9,8 +9,9 @@ import { ServServicioService } from 'src/app/servicios/serv-servicio.service';
 export class ServiciosComponent {
 
     servicios: any;
+    
 
-    constructor(private service: ServServicioService ) { }
+    constructor(private service: ServServicioService) { }
 
     ngOnInit() {
 

@@ -6,7 +6,7 @@
             <li><a routerLink="/contacto">CONTACTO</a></li>
             <div *ngIf="sesion; else elseBotones">
                 <li id="navbar-perfil"><a routerLink="/perfil">PERFIL</a></li>
-                <li id="navbar-cerrarsesion" onclick="cerrarSesion()"><a routerLink="/sesion">CERRAR SESIÓN</a></li>
+                <li id="navbar-cerrarsesion" (click)="cerrarSesion()"><a routerLink="/sesion">CERRAR SESIÓN</a></li>
             </div>
             <ng-template #elseBotones>
                 <li id="navbar-registro"><a routerLink="/registro">REGISTRO</a></li>
