@@ -1,0 +1,107 @@
+/* ? Estilos de la sección de detalles de servicios */
+
+.contenedor-detalles {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .contenedor-detalles-oculto {
+    display: none;
+  }
+
+  .detalles-recuadro-uno {
+    width: 600px;
+    height: auto;
+  }
+
+
+  .detalles-recuadro-dos {
+    width: 600px;
+    height: auto;
+    margin: 50px;
+  }
+
+
+  .detalles-recuadro-dos>h2 {
+    font-size: 50px;
+    margin: 20px 0px;
+  }
+
+  .detalles-recuadro-dos>p{
+    font-size: 20px;
+    margin: 20px 0px;
+  }
+
+  .detalles-recuadro-dos>button {
+    margin-top: 20px;
+    width: 150px;
+    height: 75px;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .detalles-recuadro-dos>button:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  .detalles-recuadro-uno {
+    overflow: hidden;
+  }
+  
+  .detalles-recuadro-uno ul {
+    display: flex;
+    padding: 0;
+    width: 400%;
+    animation: cambio 13s infinite;
+  }
+  
+  .detalles-recuadro-uno li {
+    width: 500px;
+    height: 500px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  @keyframes cambio {
+    0% {margin-left: 0;}
+    20% {margin-left: 0;}
+  
+    25% {margin-left: -100%;}
+    45% {margin-left: -100%;}
+    
+    50% {margin-left: -200%;}
+    70% {margin-left: -200%;}
+    
+    75% {margin-left: -300%;}
+    100% {margin-left: -300%;}
+  
+  
+  }
+
+
+  .boton-atras {
+    position: block;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    width: 100px;
+    height: 50px;
+    margin: 0px 30px 600px 0px;
+    border-radius: 5px;
+    cursor: pointer;
+  }

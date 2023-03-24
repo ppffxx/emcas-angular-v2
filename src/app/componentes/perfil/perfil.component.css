@@ -1,0 +1,153 @@
+  /* ? Estilos de la tabla del perfil de usuario */
+
+
+  .div-tabla-reservas {
+    align-self: flex-start;
+    margin: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  .div-tabla-reservas>h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+
+  .tabla-reservas {
+    margin: 50px 100px;
+  }
+
+  table {
+    width: 700px;
+    height: 20px;
+    margin: 0px auto 250px auto;
+  }
+
+  th {
+    background-color: black;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+  }
+
+  td {
+    border: 1px solid black;
+    text-align: center;
+    height: 70px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 5px;
+  }
+
+
+
+  .section-perfil {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 100px;
+  }
+
+  .div-form-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 30px;
+  }
+
+  .form-perfil-div>h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .form-perfil-div {
+    margin: 50px 50px 0px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-perfil-div>input {
+   width: 500px;
+   margin: 20px;
+   font-size: 20px;
+   border: 1px solid black;
+  }
+  
+  .form-perfil-div>label {
+    align-self: flex-start;
+    color: black;
+    margin: 0px 0px 0px 20px;
+  }
+
+  .boton-actualizar-datos {
+    height: 85px;
+    width: 210px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 50px 0px 20px 0px;
+    border-radius: 5px;
+  }
+
+  .boton-actualizar-datos:hover {
+    background-color: white;
+    color: black;
+  }
+
+
+  .boton-eliminarcuenta, .boton-confirmar {
+    height: 85px;
+    width: 210px;
+    background-color: red;
+    color: white;
+    border-color: red;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 10px 20px;
+    border-radius: 5px;
+  }
+
+  
+  .boton-eliminarcuenta:hover, .boton-confirmar:hover {
+    background-color: white;
+    color: red;
+    border-color: red;
+  }
+  
+
+  .boton-cancelar {
+    height: 85px;
+    width: 210px;
+    background-color: black;
+    color: white;
+    border-color: black;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 10px 20px;
+    border-radius: 5px;
+  }
+  .boton-cancelar:hover {
+    background-color: white;
+    color: black;
+    border-color: black;
+  }
+
+
+
+
+  input[readonly] {
+    color: rgb(153, 153, 153);
+    background-color: rgb(224, 224, 224);
+}

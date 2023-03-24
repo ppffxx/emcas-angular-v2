@@ -1,0 +1,13 @@
+<main>
+    <div class="banner-formulario">
+        <h2 class="h2-banner-paginas" id="banner-servicios" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url(assets/banner-servicios.jpg);">SERVICIOS</h2>
+    </div>
+    <div id="contenedor-servicios">
+        <div *ngFor="let servicio of servicios">
+            <div class="estilos-cards" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url('{{servicio.imagen4}}');">
+                <h4 class="texto-display">{{servicio.nombre}}</h4>
+                <a class="boton-detalle" data-id="{{servicio.idServicio}}">VER DETALLE</a>
+            </div>
+        </div>
+    </div>
+</main>
