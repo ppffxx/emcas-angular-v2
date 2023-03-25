@@ -8,15 +8,15 @@
                 <div class="form-perfil-div">
                     <h2>DATOS</h2>
                     <label for="nombre">NOMBRE</label>
-                    <input id="nombre" type="text">
+                    <input id="nombre" type="text" value="{{this.usuario.persona.nombre}}">
                     <label for="apellido">APELLIDO</label>
-                    <input id="apellido" type="text">
+                    <input id="apellido" type="text" value="{{this.usuario.persona.apellido}}">
                     <label for="telefono">TELÉFONO</label>
-                    <input id="telefono" type="tel">
+                    <input id="telefono" type="tel" value="{{this.usuario.persona.telefono}}">
                     <label for="usuario">USUARIO</label>
-                    <input id="usuario" type="text" name="usuario" readonly>
+                    <input id="usuario" type="text" name="usuario" readonly value="{{this.usuario.usuario}}">
                     <label for="correo">CORREO</label>
-                    <input id="correo" type="mail" name="correo" readonly>
+                    <input id="correo" type="mail" name="correo" readonly value="{{this.usuario.correo}}">
                     <button type="submit" class="boton-actualizar-datos">ACTUALIZAR DATOS</button>
                     <div id="respuesta">
                         <p id="p-validacion">.</p>
@@ -35,11 +35,18 @@
             <h2>RESERVAS</h2>
             <table class="tabla-reservas">
                 <thead>
-                    <th>Nº RESERVA</th>
-                    <th>DETALLE</th>
+                    <th>Nº</th>
+                    <th>NOMBRE</th>
+                    <th>PRECIO</th>
+                    <th>FECHA</th>
                 </thead>
                 <tbody id="tablaBody">
-                    
+                    <tr *ngFor="let x of this.usuario.reservas; let i=index">
+                        <td>{{this.usuario.reservas[i].idReserva}}</td>
+                        <td>{{this.usuario.reservas[i].servicio.nombre}}</td>
+                        <td>${{this.usuario.reservas[i].servicio.precio}}</td>
+                        <td>{{this.usuario.reservas[i].fechaReserva|date:"dd/MM/yyyy"}}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
