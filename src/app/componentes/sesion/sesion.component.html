@@ -1,15 +1,17 @@
 <main class="main-form-registro-sesion">
     <h2 class="text-registro-sesion">INICIAR SESIÓN</h2>
-    <form class="form-registro-sesion" id="formulario-sesion">
+    <form class="form-registro-sesion" id="formulario-sesion" [formGroup]="loginUsuario">
         <div class="div-form-registro-sesion">
         <label for="usuario">USUARIO</label>
-        <input name="usuario" type="text" placeholder="Ingrese su usuario" id="usuario" autocomplete="off">
+        <input name="usuario" type="text" placeholder="Ingrese su usuario" id="usuario" autocomplete="off" formControlName="usuario">
+        <span class="validacionError" *ngIf="loginUsuario.get('usuario')?.errors?.['required'] && loginUsuario.get('usuario')?.touched">* campo obligatorio</span>
         <label for="contrasenia">CONTRASEÑA</label>
-        <input name="contrasenia" type="password" placeholder="Ingrese su contraseña" id="contrasenia" autocomplete="off">
+        <input name="contrasenia" type="password" placeholder="Ingrese su contraseña" id="contrasenia" autocomplete="off" formControlName="contrasenia">
+        <span class="validacionError" *ngIf="loginUsuario.get('contrasenia')?.errors?.['required'] && loginUsuario.get('usuario')?.touched">* campo obligatorio</span>
         <div id="respuesta">
             <p id="p-validacion">.</p>
         </div>
-        <button type="submit" class="boton-registro-sesion">INICIAR SESIÓN</button>
+        <button type="submit" class="boton-registro-sesion" (click)="loginUsuarios()"[formGroup]="loginUsuario" [disabled]="loginUsuario.invalid">INICIAR SESIÓN</button>
         </div>
 </form>
 </main>

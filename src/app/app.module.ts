@@ -14,7 +14,7 @@ import { FooterComponent } from './componentes/footer/footer.component';
 import { ServServicioService } from './servicios/serv-servicio.service';
 import { HttpClientModule } from "@angular/common/http";
 import { ContactoComponent } from './componentes/contacto/contacto.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetalleServicioComponent } from './componentes/detalle-servicio/detalle-servicio.component';
 import { ReservaComponent } from './componentes/reserva/reserva.component';
 import { UsuarioService } from './servicios/usuario.service';
@@ -50,7 +50,8 @@ const appRutas:Routes= [
     AppRoutingModule,
     RouterModule.forRoot(appRutas, {scrollPositionRestoration: 'enabled'}),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ServServicioService, UsuarioService],
   bootstrap: [AppComponent]

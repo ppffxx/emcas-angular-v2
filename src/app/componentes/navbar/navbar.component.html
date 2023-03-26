@@ -1,21 +1,13 @@
 <header id="header" [ngClass]="{'barra-color': barraNegra, 'barra-transparente': barraTrans}">
     <nav>
-        <ul id="ul-navbar" *ngIf="sesion; else elseBotones">
+        <ul id="ul-navbar">
                 <a routerLink="/" class="logo-emcas-over"><img src="assets/EMCAS-logo-blanco.png" alt="Logo EMCAS" class="logo-emcas"></a>
                 <li><a routerLink="/servicios">SERVICIOS</a></li>
                 <li><a routerLink="/contacto">CONTACTO</a></li>
-                <li id="navbar-perfil"><a routerLink="/perfil">PERFIL</a></li>
-                <li id="navbar-cerrarsesion" (click)="cerrarSesion()"><a routerLink="/sesion">CERRAR SESIÓN</a></li>
-            
+                <li id="navbar-perfil" *ngIf="sesion"><a routerLink="/perfil">PERFIL</a></li>
+                <li id="navbar-cerrarsesion" (click)="cerrarSesion()" *ngIf="sesion"><a routerLink="/sesion">CERRAR SESIÓN</a></li>
+                <li id="navbar-registro"><a routerLink="/registro" *ngIf="!sesion">REGISTRO</a></li>
+                <li id="navbar-sesion"><a routerLink="/sesion" *ngIf="!sesion">INICIAR SESIÓN</a></li>
         </ul>
-        <ng-template #elseBotones>
-            <ul id="ul-navbar" >
-                <a routerLink="/" class="logo-emcas-over"><img src="assets/EMCAS-logo-blanco.png" alt="Logo EMCAS" class="logo-emcas"></a>
-                <li><a routerLink="/servicios">SERVICIOS</a></li>
-                <li><a routerLink="/contacto">CONTACTO</a></li>
-                <li id="navbar-registro"><a routerLink="/registro">REGISTRO</a></li>
-                <li id="navbar-sesion"><a routerLink="/sesion">INICIAR SESIÓN</a></li>
-            </ul>
-        </ng-template>
     </nav>
 </header>

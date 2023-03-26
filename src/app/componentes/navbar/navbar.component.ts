@@ -1,4 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
+import { ComprobarsesionService } from 'src/app/servicios/comprobarsesion.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +14,7 @@ export class NavbarComponent {
   barraTrans:boolean = true;
   
 
-  constructor() {
+  constructor(private sesionServicio: ComprobarsesionService, private router: Router) {
   }
 
   ngOnInit() {
@@ -22,7 +24,19 @@ export class NavbarComponent {
         this.sesion = false;
     }
 
+
+    this.sesionServicio.logueo.subscribe(data => {
+      this.sesion = data;
+    })
+
   }
+
+  cerrarSesion() {
+    localStorage.removeItem('idUsuario')
+    this.sesionServicio.logueo.next(false);
+    this.router.navigate(['/sesion']);
+  }
+
 
   @HostListener("window:scroll", ['$event'])
   onScroll($event:Event){
@@ -37,11 +51,6 @@ export class NavbarComponent {
     this.barraTrans = true;
   }
   previousScroll = scroll;
-  }
-
-
-  cerrarSesion() {
-    localStorage.removeItem('idUsuario');
   }
 
 }

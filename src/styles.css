@@ -98,7 +98,12 @@ border: 1px solid white;
   cursor: pointer;
 }
 
-
+.validacionError {
+  color:rgb(255, 53, 53);
+  margin-left: 20px;
+  font-weight: 700;
+  font-size: 15px;
+}
 
 /* ?? Estilos de los banners de las pantallas html */
 
