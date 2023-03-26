@@ -19,9 +19,9 @@ export class NavbarComponent {
 
   ngOnInit() {
     if(localStorage.getItem('idUsuario')) {
-      this.sesion= true;
+      this.sesionServicio.logueo.next(true);
     } else {
-        this.sesion = false;
+      this.sesionServicio.logueo.next(false);
     }
 
 
@@ -42,11 +42,11 @@ export class NavbarComponent {
   onScroll($event:Event){
     let previousScroll:number = 0;
     let scroll = document.documentElement.scrollTop;
-    if (scroll > previousScroll && scroll > 350){
+    if (scroll > previousScroll && scroll > 100){
       this.barraNegra=true;
       this.barraTrans=false;
   }
-  if (scroll < 350) {
+  if (scroll < 100) {
     this.barraNegra = false;
     this.barraTrans = true;
   }

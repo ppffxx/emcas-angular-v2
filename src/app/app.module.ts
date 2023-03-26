@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetalleServicioComponent } from './componentes/detalle-servicio/detalle-servicio.component';
 import { ReservaComponent } from './componentes/reserva/reserva.component';
 import { UsuarioService } from './servicios/usuario.service';
+import { NoencontradoComponent } from './componentes/noencontrado/noencontrado.component';
 
 
 const appRutas:Routes= [
@@ -28,7 +29,8 @@ const appRutas:Routes= [
   {path: 'servicios', component:ServiciosComponent, title: 'Servicios'},
   {path: 'contacto', component:ContactoComponent, title: 'Contacto'},
   {path: 'detalle-servicio/:id', component:DetalleServicioComponent, title: 'Detalle'},
-  {path: 'reserva/:id', component:ReservaComponent, title: 'Reservar'}
+  {path: 'reserva/:id', component:ReservaComponent, title: 'Reservar'},
+  {path: '**', component:NoencontradoComponent, title: 'No encontrado'}
 ]
 
 @NgModule({
@@ -43,7 +45,8 @@ const appRutas:Routes= [
     FooterComponent,
     ContactoComponent,
     DetalleServicioComponent,
-    ReservaComponent
+    ReservaComponent,
+    NoencontradoComponent
   ],
   imports: [
     BrowserModule,

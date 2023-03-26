@@ -67,6 +67,11 @@ border-radius: 5px;
 border: 1px solid white;
 }
 
+::placeholder {
+  padding-left: 10px;
+}
+
+
 
 .text-area-div {
   display: flex;
@@ -110,7 +115,7 @@ border: 1px solid white;
 #banner-servicios{
 
   width: 100%;
-  height: 500px;
+  height: 400px;
   background-position: center;
   background-size: cover;
   display: flex;
@@ -120,7 +125,7 @@ border: 1px solid white;
 
 #banner-perfil {
   width: 100%;
-  height: 500px;
+  height: 400px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url(/assets/banner-perfil.jpg);
   background-position: center;
   background-size: cover;
@@ -134,8 +139,8 @@ border: 1px solid white;
   margin: 0 auto;
   color: white;
   font-weight: 700;
-  padding-top: 200px;
-  font-size: 100px;
+  padding-top: 150px;
+  font-size: 80px;
   width: 50%;
 }
 
