@@ -5,23 +5,23 @@
     <!-- <button class="boton-atras-reserva" id="boton-atras-reserva">🡰</button> -->
     <h2 class="titulo-form">Tu reserva</h2>
 <p class="p-form">Ingresa tus datos para hacer la reserva</p>
-<form class="formulario-contacto">
+<form class="formulario-contacto" [formGroup]="registroReserva">
         <div class="reserva-form-div">
         <label for="nombre">NOMBRE</label>
-        <input id="nombre" type="text" placeholder="INGRESE SU NOMBRE" value="{{usuarioInfo?.persona?.nombre}}">
+        <input id="nombre" type="text" placeholder="INGRESE SU NOMBRE" formControlName="nombre">
         <label for="apellido">APELLIDO</label>
-        <input id="apellido" type="text" placeholder="INGRESE SU APELLIDO" value="{{usuarioInfo?.persona?.apellido}}">
+        <input id="apellido" type="text" placeholder="INGRESE SU APELLIDO" formControlName="apellido">
         <label for="telefono">TELÉFONO</label>
-        <input id="telefono" type="tel" placeholder="INGRESE SU TELEFONO" value="{{usuarioInfo?.persona?.telefono}}">
+        <input id="telefono" type="tel" placeholder="INGRESE SU TELEFONO" formControlName="telefono">
         <label for="fechaReserva">FECHA PARA LA SESIÓN</label>
-        <input id="fechaReserva" type="date" min="2023-02-24" max="2023-12-31">
+        <input id="fechaReserva" type="date" min="2023-02-24" max="2023-12-31" formControlName="fechaReserva">
         <div class="detalles-recuadro-dos">
             <h2 class="h2-reserva">{{servicios?.nombre}}</h2>
             <p class="p-reserva">{{servicios?.descripcion}}</p>
-            <p class="precio-reserva">{{servicios?.precio}}</p>
+            <p class="precio-reserva">${{servicios?.precio}}</p>
         </div>
             <p id="p-validacion">.</p>
-        <button class="boton-confirmar-reserva">CONFIRMAR RESERVA</button>
+        <button class="boton-confirmar-reserva" [formGroup]="registroReserva" (click)="reservar()">CONFIRMAR RESERVA</button>
         </div>
         
 </form>

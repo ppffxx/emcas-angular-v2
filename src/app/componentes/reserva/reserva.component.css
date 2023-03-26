@@ -29,9 +29,14 @@
   background-color: black;
   font-size: 20px;
   font-weight: 700;
-  margin: 150px;
+  margin-bottom: 100px;
   border-radius: 5px;
   cursor: pointer;
+  }
+
+  .boton-confirmar-reserva:hover {
+    color: black;
+    background-color: white;
   }
 
 
@@ -43,4 +48,37 @@
     margin: 50px;
     border-radius: 5px;
     cursor: pointer;
+  }
+
+  .detalles-recuadro-dos {
+    width: 600px;
+    height: auto;
+    margin: 50px;
+  }
+
+
+  .detalles-recuadro-dos>h2 {
+    font-size: 50px;
+    margin: 20px 0px;
+  }
+
+  .detalles-recuadro-dos>p{
+    font-size: 20px;
+    margin: 20px 0px;
+  }
+
+  .detalles-recuadro-dos>button {
+    width: 150px;
+    height: 75px;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .detalles-recuadro-dos>button:hover {
+    background-color: white;
+    color: black;
   }

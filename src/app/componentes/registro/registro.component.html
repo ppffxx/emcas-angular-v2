@@ -2,24 +2,23 @@
     <h2 class="text-registro-sesion">REGISTRO</h2>
     <form class="form-registro-sesion" id="formulario-registro" [formGroup]="registroUsuario">
         <div class="div-form-registro-sesion">
-        <label for="correo">CORREO</label>
-        <input name="correo" id="correo" type="email" placeholder="Ingrese su correo" formControlName="correo">
-        <span class="validacionError" *ngIf="registroUsuario.get('correo')?.errors?.['required'] && registroUsuario.get('correo')?.touched">* campo obligatorio</span>
-        <span class="validacionError" *ngIf="registroUsuario.get('correo')?.errors?.['email']">* correo requiere el formato ejemplo@ejemplo.com</span>
-        <label for="usuario">USUARIO</label>
-        <input name="usuario" id="usuario" type="text" placeholder="Ingrese su usuario" formControlName="usuario">
-        <span class="validacionError" *ngIf="registroUsuario.get('usuario')?.errors?.['required'] && registroUsuario.get('usuario')?.touched">* campo obligatorio</span>
-        <span class="validacionError" *ngIf="registroUsuario.get('usuario')?.errors?.['minlength']">* usuario requiere un minimo de {{minimo}} caracteres</span>
-        <span class="validacionError" *ngIf="registroUsuario.get('usuario')?.errors?.['pattern']">* el usuario solo puede contener letras y números</span>
-        <label for="contrasenia">CONTRASEÑA</label>
-        <input name="contrasenia" id="contrasenia" type="password" placeholder="Ingrese su contraseña" formControlName="contrasenia">
-        <span class="validacionError" *ngIf="registroUsuario.get('contrasenia')?.errors?.['required'] && registroUsuario.get('contrasenia')?.touched">* campo obligatorio</span>
-        <label for="repcontrasenia">REPETIR CONTRASEÑA</label>
-        <input name="repcontrasenia" id="rep-contrasenia" type="password" placeholder="Repita su contraseña" formControlName="repcontrasenia">
-        <span class="validacionError" *ngIf="registroUsuario.get('repcontrasenia')?.errors?.['required'] && registroUsuario.get('repcontrasenia')?.touched">* campo obligatorio</span>
-        <span class="validacionError" *ngIf="validacionPass">* las contraseñas no coinciden</span>
-        <button type="submit" class="boton-registro-sesion" (click)="registro()" [formGroup]="registroUsuario" [disabled]="registroUsuario.invalid">REGISTRARSE</button>
-        
+            <label for="correo">CORREO</label>
+            <input name="correo" id="correo" type="email" placeholder="Ingrese su correo" formControlName="correo">
+                <span class="validacionError" *ngIf="registroUsuario.get('correo')?.errors?.['required'] && registroUsuario.get('correo')?.touched">* campo obligatorio</span>
+                <span class="validacionError" *ngIf="registroUsuario.get('correo')?.errors?.['email']">* correo requiere el formato ejemplo@ejemplo.com</span>
+            <label for="usuario">USUARIO</label>
+            <input name="usuario" id="usuario" type="text" placeholder="Ingrese su usuario" formControlName="usuario">
+                <span class="validacionError" *ngIf="registroUsuario.get('usuario')?.errors?.['required'] && registroUsuario.get('usuario')?.touched">* campo obligatorio</span>
+                <span class="validacionError" *ngIf="registroUsuario.get('usuario')?.errors?.['minlength']">* usuario requiere un minimo de {{minimo}} caracteres</span>
+                <span class="validacionError" *ngIf="registroUsuario.get('usuario')?.errors?.['pattern']">* el usuario solo puede contener letras y números</span>
+            <label for="contrasenia">CONTRASEÑA</label>
+            <input name="contrasenia" id="contrasenia" type="password" placeholder="Ingrese su contraseña" formControlName="contrasenia">
+                <span class="validacionError" *ngIf="registroUsuario.get('contrasenia')?.errors?.['required'] && registroUsuario.get('contrasenia')?.touched">* campo obligatorio</span>
+            <label for="repcontrasenia">REPETIR CONTRASEÑA</label>
+            <input name="repcontrasenia" id="rep-contrasenia" type="password" placeholder="Repita su contraseña" formControlName="repcontrasenia">
+                <span class="validacionError" *ngIf="registroUsuario.get('repcontrasenia')?.errors?.['required'] && registroUsuario.get('repcontrasenia')?.touched">* campo obligatorio</span>
+                <span class="validacionError" *ngIf="validacionPass">* las contraseñas no coinciden</span>
+            <button type="submit" class="boton-registro-sesion" (click)="registro()" [formGroup]="registroUsuario" [disabled]="registroUsuario.invalid">REGISTRARSE</button>
         </div>
 </form>
 </main>

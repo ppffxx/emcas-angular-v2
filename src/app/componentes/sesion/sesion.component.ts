@@ -38,7 +38,7 @@ export class SesionComponent {
         this.router.navigate(['/']);
         this.sesionServicio.logueo.next(true);
       } else {
-        console.log('mal')
+        console.log(data);
       }
     })
 

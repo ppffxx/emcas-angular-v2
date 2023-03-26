@@ -151,3 +151,11 @@
     color: rgb(153, 153, 153);
     background-color: rgb(224, 224, 224);
 }
+
+
+.eliminar-cuenta {
+  font-weight: 700;
+  color: red;
+  font-size: 20px;
+  margin: 20px;
+}
