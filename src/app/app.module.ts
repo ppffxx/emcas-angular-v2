@@ -17,6 +17,7 @@ import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { FormsModule } from '@angular/forms';
 import { DetalleServicioComponent } from './componentes/detalle-servicio/detalle-servicio.component';
 import { ReservaComponent } from './componentes/reserva/reserva.component';
+import { UsuarioService } from './servicios/usuario.service';
 
 
 const appRutas:Routes= [
@@ -51,7 +52,7 @@ const appRutas:Routes= [
     HttpClientModule,
     FormsModule
   ],
-  providers: [ServServicioService],
+  providers: [ServServicioService, UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Servicio } from 'src/app/modelos/servicio';
 import { Usuario } from 'src/app/modelos/usuario';
 import { ServServicioService } from 'src/app/servicios/serv-servicio.service';
+import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
   selector: 'app-reserva',
@@ -17,7 +18,7 @@ export class ReservaComponent {
   idServicio:number=0;
   idUsuario:number = Number(localStorage.getItem('idUsuario'));
 
-  constructor(private router: Router, private activatedRoute : ActivatedRoute, private service: ServServicioService) {
+  constructor(private router: Router, private activatedRoute : ActivatedRoute, private service: ServServicioService, private serviceUs: UsuarioService) {
 
     activatedRoute.params.subscribe( prm => {
       this.idServicio = prm['id'];
@@ -27,14 +28,13 @@ export class ReservaComponent {
 
   }
 
-  
 
   ngOnInit() {
     if(!localStorage.getItem('idUsuario')) {
       this.router.navigate(['/sesion']);
     }
 
-    this.service.getUsuarioDetalle(this.idUsuario).subscribe(data => {
+    this.serviceUs.getUsuarioDetalle(this.idUsuario).subscribe(data => {
       this.usuarioInfo = data;
     })
 

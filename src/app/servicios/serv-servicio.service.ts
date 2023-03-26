@@ -21,8 +21,8 @@ export class ServServicioService {
     return this.http.get(this.url + idServicio);
   }
 
-  getUsuarioDetalle(idUsuario:number): Observable<any> {
-    return this.http.get('http://localhost:8080/usuarios/' + idUsuario + '');
-  }
+  // getUsuarioDetalle(idUsuario:number): Observable<any> {
+  //   return this.http.get('http://localhost:8080/usuarios/' + idUsuario + '');
+  // }
 
 }
