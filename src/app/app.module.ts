@@ -20,14 +20,14 @@ import { ReservaComponent } from './componentes/reserva/reserva.component';
 
 
 const appRutas:Routes= [
-  {path: '', component:HomeComponent},
-  {path: 'registro', component:RegistroComponent},
-  {path: 'sesion', component:SesionComponent},
-  {path: 'perfil', component:PerfilComponent},
-  {path: 'servicios', component:ServiciosComponent},
-  {path: 'contacto', component:ContactoComponent},
-  {path: 'detalle-servicio/:id', component:DetalleServicioComponent},
-  {path: 'reserva/:id', component:ReservaComponent}
+  {path: '', component:HomeComponent, title: 'EMCAS'},
+  {path: 'registro', component:RegistroComponent, title: 'Registro'},
+  {path: 'sesion', component:SesionComponent, title: 'Iniciar Sesión'},
+  {path: 'perfil', component:PerfilComponent, title: 'Perfil'},
+  {path: 'servicios', component:ServiciosComponent, title: 'Servicios'},
+  {path: 'contacto', component:ContactoComponent, title: 'Contacto'},
+  {path: 'detalle-servicio/:id', component:DetalleServicioComponent, title: 'Detalle'},
+  {path: 'reserva/:id', component:ReservaComponent, title: 'Reservar'}
 ]
 
 @NgModule({

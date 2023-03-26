@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
+import { Servicio } from 'src/app/modelos/servicio';
 import { ServServicioService } from 'src/app/servicios/serv-servicio.service';
 
 
@@ -10,7 +11,7 @@ import { ServServicioService } from 'src/app/servicios/serv-servicio.service';
 })
 export class DetalleServicioComponent {
 
-  servicios:any;
+  servicios: Servicio| undefined;
   idServicio:number=0;
   
 

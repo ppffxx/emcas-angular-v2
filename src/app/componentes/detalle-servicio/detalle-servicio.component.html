@@ -1,24 +1,24 @@
 <div class="banner-formulario">
-    <h2 class="h2-banner-paginas" id="banner-servicios" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url({{servicios.imagen3}});">{{servicios.nombre}}</h2>
+    <h2 class="h2-banner-paginas" id="banner-servicios" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url({{servicios?.imagen3}});">{{servicios?.nombre}}</h2>
 </div>
 <section class="contenedor-detalles" id="contenedor-detalles">
     <button class="boton-atras" id="boton-atras">🡰</button>
         <div class="detalles-recuadro-uno">
             <ul>
-                <li style="background-image: url({{servicios.imagen1}})" class="imagen-uno">
+                <li style="background-image: url({{servicios?.imagen1}})" class="imagen-uno">
                 </li>
-                <li style="background-image: url({{servicios.imagen2}})" class="imagen-dos">
+                <li style="background-image: url({{servicios?.imagen2}})" class="imagen-dos">
                 </li>
-                <li style="background-image: url({{servicios.imagen3}})" class="imagen-tres">
+                <li style="background-image: url({{servicios?.imagen3}})" class="imagen-tres">
                 </li>
-                <li style="background-image: url({{servicios.imagen4}})" class="imagen-cuatro">
+                <li style="background-image: url({{servicios?.imagen4}})" class="imagen-cuatro">
                 </li>
             </ul>
     </div>
     <div class="detalles-recuadro-dos">
-        <h2 class="h2-detalles-uno">{{servicios.nombre}}</h2>
-        <p class="p-detalles-uno">{{servicios.descripcion}}</p>
-        <p class="precio-uno">${{servicios.precio}}</p>
+        <h2 class="h2-detalles-uno">{{servicios?.nombre}}</h2>
+        <p class="p-detalles-uno">{{servicios?.descripcion}}</p>
+        <p class="precio-uno">${{servicios?.precio}}</p>
         <button class="boton-detalle-reservar" routerLink="/reserva/{{idServicio}}">RESERVAR</button>
     </div>
 </section>

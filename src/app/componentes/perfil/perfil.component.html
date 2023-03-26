@@ -1,6 +1,6 @@
 <main>
     <div class="banner-formulario">
-        <h2 class="h2-banner-paginas" id="banner-perfil">PERFIL</h2>
+        <h2 class="h2-banner-paginas" id="banner-perfil" *ngIf="usuarioPerfil">{{usuarioPerfil.persona?.nombre}} {{usuarioPerfil.persona?.apellido}}</h2>
     </div>
     <section class="section-perfil">
         <div class="div-form-perfil">
@@ -8,15 +8,15 @@
                 <div class="form-perfil-div">
                     <h2>DATOS</h2>
                     <label for="nombre">NOMBRE</label>
-                    <input id="nombre" type="text" value="{{this.usuario.persona.nombre}}">
+                    <input id="nombre" type="text" value="{{usuarioPerfil?.persona?.nombre}}">
                     <label for="apellido">APELLIDO</label>
-                    <input id="apellido" type="text" value="{{this.usuario.persona.apellido}}">
+                    <input id="apellido" type="text" value="{{usuarioPerfil?.persona?.apellido}}">
                     <label for="telefono">TELÉFONO</label>
-                    <input id="telefono" type="tel" value="{{this.usuario.persona.telefono}}">
+                    <input id="telefono" type="tel" value="{{usuarioPerfil?.persona?.telefono}}">
                     <label for="usuario">USUARIO</label>
-                    <input id="usuario" type="text" name="usuario" readonly value="{{this.usuario.usuario}}">
+                    <input id="usuario" type="text" name="usuario" readonly value="{{usuarioPerfil?.usuario}}">
                     <label for="correo">CORREO</label>
-                    <input id="correo" type="mail" name="correo" readonly value="{{this.usuario.correo}}">
+                    <input id="correo" type="mail" name="correo" readonly value="{{usuarioPerfil?.correo}}">
                     <button type="submit" class="boton-actualizar-datos">ACTUALIZAR DATOS</button>
                     <div id="respuesta">
                         <p id="p-validacion">.</p>
@@ -41,11 +41,11 @@
                     <th>FECHA</th>
                 </thead>
                 <tbody id="tablaBody">
-                    <tr *ngFor="let x of this.usuario.reservas; let i=index">
-                        <td>{{this.usuario.reservas[i].idReserva}}</td>
-                        <td>{{this.usuario.reservas[i].servicio.nombre}}</td>
-                        <td>${{this.usuario.reservas[i].servicio.precio}}</td>
-                        <td>{{this.usuario.reservas[i].fechaReserva|date:"dd/MM/yyyy"}}</td>
+                    <tr *ngFor="let x of this.usuarioPerfil?.reservas">
+                        <td>{{x.idReserva}}</td>
+                        <td>{{x.servicio?.nombre}}</td>
+                        <td>${{x.servicio?.precio}}</td>
+                        <td>{{x.fechaReserva|date:"dd/MM/yyyy"}}</td>
                     </tr>
                 </tbody>
             </table>
