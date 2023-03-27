@@ -6,16 +6,16 @@
             <div>
                 <label for="usuario">NOMBRE</label>
                 <input id="usuario" type="text" placeholder="INGRESE SU NOMBRE" name="nombre" [(ngModel)]="formodel.nombre" required #nombreV="ngModel">
-                    <div [hidden]="nombreV.valid || nombreV.untouched">campo requerido</div>
+                    <div [hidden]="nombreV.valid || nombreV.untouched" class="validacionError">campo requerido</div>
                 <label for="contrasenia">APELLIDO</label>
                 <input id="contrasenia" type="text" placeholder="INGRESE SU APELLIDO" name="apellido" [(ngModel)]="formodel.apellido" required #apellidoV="ngModel">
-                    <div [hidden]="apellidoV.valid || apellidoV.untouched">campo requerido</div>
+                    <div [hidden]="apellidoV.valid || apellidoV.untouched" class="validacionError">campo requerido</div>
                 <label for="correo">CORREO</label>
                 <input id="correo" type="email" placeholder="INGRESE SU CORREO" name="correo" [(ngModel)]="formodel.correo" required #correoV="ngModel">
-                    <div [hidden]="correoV.valid || correoV.untouched">campo requerido</div>
+                    <div [hidden]="correoV.valid || correoV.untouched" class="validacionError">campo requerido</div>
                 <label for="nombre">TELÉFONO</label>
                 <input id="nombre" type="tel" placeholder="INGRESE SU TELEFONO" name="telefono" [(ngModel)]="formodel.telefono" required #telefonoV="ngModel">
-                    <div [hidden]="telefonoV.valid || telefonoV.untouched">campo requerido</div>
+                    <div [hidden]="telefonoV.valid || telefonoV.untouched" class="validacionError">campo requerido</div>
             </div>
             <div class="text-area-div">
                 <label for="textarea" id="text-area-label">MENSAJE</label>

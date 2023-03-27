@@ -17,4 +17,8 @@ export class ReservaService {
     return this.http.post(this.url, reserva);
   }
 
+  obtenerTodas(): Observable<any> {
+    return this.http.get('http://localhost:8080/reservas/todas');
+  }
+
 }

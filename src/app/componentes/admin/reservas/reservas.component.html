@@ -1,0 +1,30 @@
+<div class="banner-formulario">
+    <h2 class="h2-banner-paginas" id="banner-servicios" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url(assets/banner-servicios.jpg);">RESERVAS</h2>
+</div>
+
+<div class="div-tabla-reservas">
+    <table class="tabla-reservas">
+        <thead>
+            <th>Nº</th>
+            <th>NOMBRE</th>
+            <th>PRECIO</th>
+            <th>FECHA</th>
+            <th>NOMBRE</th>
+            <th>APELLIDO</th>
+            <th>CORREO</th>
+            <th>TELEFONO</th>
+        </thead>
+        <tbody id="tablaBody">
+            <tr *ngFor="let reserva of this.reservasTodas">
+                <td>{{reserva.idReserva}}</td>
+                <td>{{reserva.servicio?.nombre}}</td>
+                <td>${{reserva.servicio?.precio}}</td>
+                <td>{{reserva.fechaReserva | date:"dd/MM/yyyy"}}</td>
+                <td>{{reserva.usuario?.persona?.nombre}}</td>
+                <td>{{reserva.usuario?.persona?.apellido}}</td>
+                <td>{{reserva.usuario?.correo}}</td>
+                <td>{{reserva.usuario?.persona?.telefono}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

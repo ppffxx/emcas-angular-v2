@@ -5,6 +5,7 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 import { PersonaService } from 'src/app/servicios/persona.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ComprobarsesionService } from 'src/app/servicios/comprobarsesion.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-perfil',
@@ -48,11 +49,32 @@ export class PerfilComponent implements OnInit {
 
   }
 
+
+  getDetalles() {
+    this.service.getUsuarioDetalle(this.usuarioId).subscribe(data => {
+      this.usuarioPerfil = data;
+      console.log(data);
+      this.personaPerfil.get('nombre')?.setValue(this.usuarioPerfil?.persona?.nombre);
+      this.personaPerfil.get('apellido')?.setValue(this.usuarioPerfil?.persona?.apellido);
+      this.personaPerfil.get('telefono')?.setValue(this.usuarioPerfil?.persona?.telefono);
+    });
+  }
+
   
   actualizarPersona() {
     const perfilaActualizar = {nombre: this.personaPerfil.value.nombre, apellido: this.personaPerfil.value.apellido, telefono: this.personaPerfil.value.telefono}
     this.personaServicio.actualizarPersona(this.usuarioId, perfilaActualizar).subscribe(data => {
-      this.datosActualizados = true;
+      Swal.fire({
+        icon: 'success',
+        title: 'Datos actualizados',
+        text: 'Los datos fueron actualizados de forma exitosa',
+        showConfirmButton: false,
+          timer: 2000
+      }).then((result) => {
+        if (result) {
+          this.getDetalles();
+        }
+      })
     })
   }
 
@@ -69,6 +91,11 @@ export class PerfilComponent implements OnInit {
     this.service.deleteUsuario(this.usuarioId).subscribe(data => {
       this.sesion.logueo.next(false);
       localStorage.removeItem('idUsuario');
+      Swal.fire({
+        title: 'Cuenta eliminada',
+        text: 'Esperamos volver a verte pronto',
+        confirmButtonText: 'Cerrar',
+      })
       this.router.navigate(['/sesion']);
     })
   }

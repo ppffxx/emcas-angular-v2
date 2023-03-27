@@ -18,6 +18,6 @@
         <h2 class="h2-detalles-uno">{{servicios?.nombre}}</h2>
         <p class="p-detalles-uno">{{servicios?.descripcion}}</p>
         <p class="precio-uno">${{servicios?.precio}}</p>
-        <button class="boton-detalle-reservar" routerLink="/reserva/{{idServicio}}">RESERVAR</button>
+        <button class="boton-detalle-reservar" (click)="reservar()">RESERVAR</button>
     </div>
 </section>
