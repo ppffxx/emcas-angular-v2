@@ -1,11 +1,5 @@
 /* ? formulario para reservar  */
 
-
-.section-formulario-reserva-oculto {
-    display: none;
-  }
-  
-
   .section-formulario-reserva>.titulo-form, .section-formulario-reserva>.p-form, .reserva-form-div>label {
     color: black;
   }
@@ -20,7 +14,6 @@
     border: 1px solid black;
   }
 
- 
 
   .boton-confirmar-reserva {
   width: 300px;
@@ -39,16 +32,6 @@
     background-color: white;
   }
 
-
-  .boton-atras-reserva {
-    width: 75px;
-    height: 75px;
-    background-color: black;
-    color: white;
-    margin: 50px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
 
   .detalles-recuadro-dos {
     width: 600px;

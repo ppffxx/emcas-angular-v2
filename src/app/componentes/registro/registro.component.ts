@@ -14,6 +14,9 @@ import { catchError, of } from 'rxjs';
 export class RegistroComponent {
   
   minimo:number = 5;
+  maximo:number = 20;
+  maximoCorreo:number = 45;
+  maximoPass:number = 30;
   validacionPass:boolean = false;
   validacionDos:boolean = false;
   registroUsuario:FormGroup = new FormGroup({});
@@ -25,7 +28,7 @@ export class RegistroComponent {
 
   ngOnInit() {
     this.registroUsuario = this.fb.group({
-    usuario: ['',[Validators.required, Validators.minLength(this.minimo), Validators.pattern('^[a-zA-Z0-9]+$')]],
+    usuario: ['',[Validators.required, Validators.minLength(this.minimo), Validators.pattern('^[a-zA-Z0-9]+$'), Validators.maxLength(this.maximo)]],
     correo: ['',[Validators.required, Validators.email]],
     contrasenia: ['',[Validators.required]],
     repcontrasenia: ['',[Validators.required]]
@@ -43,8 +46,21 @@ export class RegistroComponent {
      const usuarioRegistro= {usuario: this.registroUsuario.value.usuario, correo: this.registroUsuario.value.correo, contrasenia: this.registroUsuario.value.contrasenia};
      this.registroService.registro(usuarioRegistro).pipe(catchError(error => {
       if(error.status == 400) {
-        this.error = error.error;
-        this.validacionDos = true;
+        Swal.fire({
+          icon: 'error',
+          title: error.error,
+          text: 'verifica los campos ingresados',
+          showConfirmButton:false,
+          timer: 3000,
+         })
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error al registrar la cuenta',
+          text: 'verifica los campos ingresados',
+          showConfirmButton:false,
+          timer: 3000,
+         })
       }
       return of (null);
     })).subscribe(data => {
@@ -59,7 +75,6 @@ export class RegistroComponent {
       }
     })
     } else {
-      console.log('aaaa')
       this.validacionPass=true;
     }
 

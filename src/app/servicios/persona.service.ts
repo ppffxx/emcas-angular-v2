@@ -11,8 +11,6 @@ export class PersonaService {
   url:string = 'http://localhost:8080/personas/';
 
   constructor(private http: HttpClient) { }
-
-
   actualizarPersona(idUsuario:number, persona: Personaperfil): Observable<any> {
     return this.http.put(this.url+idUsuario, persona);
   }

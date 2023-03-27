@@ -10,21 +10,18 @@ import Swal from 'sweetalert2';
   templateUrl: './detalle-servicio.component.html',
   styleUrls: ['./detalle-servicio.component.css']
 })
-export class DetalleServicioComponent {
+export class DetalleServicioComponent implements OnInit {
 
   servicios: Servicio| undefined;
   idServicio:number=0;
   
-
   constructor(private activatedRoute : ActivatedRoute, private service: ServServicioService, private router: Router) {
-    
     activatedRoute.params.subscribe( prm => {
       this.idServicio = prm['id'];
       localStorage.setItem('idServicio', ''+this.idServicio+'');
   })
 
   }
-
   
   ngOnInit() {
     this.service.getServicioDetalle(this.idServicio).subscribe(data => {
@@ -37,11 +34,10 @@ export class DetalleServicioComponent {
 reservar() {
   if(localStorage.getItem('idUsuario')) {
     this.router.navigate(['/reserva/'+this.idServicio]);
-    
   } else {
     Swal.fire({
       icon: 'warning',
-      title: 'Inicia Sesión',
+      title: 'Iniciar Sesión',
       text: 'Necesitas iniciar sesión para hacer una reserva',
       showConfirmButton: false,
       timer: 3000
@@ -49,6 +45,5 @@ reservar() {
     this.router.navigate(['/sesion']);
   }
 }
-
 
 }

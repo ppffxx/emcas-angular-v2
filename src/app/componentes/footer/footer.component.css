@@ -32,4 +32,5 @@ footer {
   .footer-redes>a:hover {
     padding-top: 50px;
     border: none;
+    cursor: pointer;
   }

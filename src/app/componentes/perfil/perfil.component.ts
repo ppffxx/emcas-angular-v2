@@ -26,9 +26,7 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit() {
     if(!localStorage.getItem('idUsuario')) {
-      
       this.router.navigate(['/sesion']);
-
     }
 
     this.personaPerfil = this.fb.group( {
@@ -39,13 +37,10 @@ export class PerfilComponent implements OnInit {
     
     this.service.getUsuarioDetalle(this.usuarioId).subscribe(data => {
       this.usuarioPerfil = data;
-      console.log(data);
       this.personaPerfil.get('nombre')?.setValue(this.usuarioPerfil?.persona?.nombre);
       this.personaPerfil.get('apellido')?.setValue(this.usuarioPerfil?.persona?.apellido);
       this.personaPerfil.get('telefono')?.setValue(this.usuarioPerfil?.persona?.telefono);
     });
-
-
   }
   
   actualizarPersona() {
@@ -80,7 +75,8 @@ export class PerfilComponent implements OnInit {
       Swal.fire({
         title: 'Cuenta eliminada',
         text: 'Esperamos volver a verte pronto',
-        confirmButtonText: 'Cerrar',
+        showConfirmButton: false,
+        timer: 3000
       })
       this.router.navigate(['/sesion']);
     })

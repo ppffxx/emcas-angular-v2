@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { LoginService } from 'src/app/servicios/login.service';
@@ -11,11 +11,9 @@ import Swal from 'sweetalert2';
   templateUrl: './sesion.component.html',
   styleUrls: ['./sesion.component.css']
 })
-export class SesionComponent {
+export class SesionComponent implements OnInit {
 
   loginUsuario:FormGroup = new FormGroup({});
-  credenciales:string = '';
-  credencialesBien: boolean = false;
 
   constructor(private router: Router, private fb: FormBuilder, private loginservicio: LoginService, private sesionServicio: ComprobarsesionService) {
     
@@ -38,7 +36,6 @@ export class SesionComponent {
     const usuarioLogin = {usuario: this.loginUsuario.value.usuario, contrasenia: this.loginUsuario.value.contrasenia, correo: '', repcontrasenia: ''};
     this.loginservicio.login(usuarioLogin).pipe(catchError(error => {
       if(error.status == 400) {
-
         Swal.fire({
           icon: 'error',
           title: error.error,
@@ -46,9 +43,6 @@ export class SesionComponent {
           showConfirmButton:false,
           timer: 3000,
          })
-
-        this.credenciales = error.error;
-        this.credencialesBien = true;
       }
       return of (null);
     })).subscribe(data => {

@@ -8,11 +8,11 @@
                 <div class="form-perfil-div">
                     <h2>DATOS</h2>
                     <label for="nombre">NOMBRE</label>
-                    <input id="nombre" type="text" formControlName="nombre">
+                    <input id="nombre" type="text" formControlName="nombre" maxlength="30">
                     <label for="apellido">APELLIDO</label>
-                    <input id="apellido" type="text" formControlName="apellido">
+                    <input id="apellido" type="text" formControlName="apellido" maxlength="30">
                     <label for="telefono">TELÉFONO</label>
-                    <input id="telefono" type="tel" formControlName="telefono">
+                    <input id="telefono" type="tel" formControlName="telefono" maxlength="20">
                     <label for="usuario">USUARIO</label>
                     <input id="usuario" type="text" name="usuario" readonly value="{{usuarioPerfil?.usuario}}">
                     <label for="correo">CORREO</label>

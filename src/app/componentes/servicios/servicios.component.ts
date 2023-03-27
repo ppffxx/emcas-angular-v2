@@ -6,10 +6,9 @@ import { ServServicioService } from 'src/app/servicios/serv-servicio.service';
   templateUrl: './servicios.component.html',
   styleUrls: ['./servicios.component.css']
 })
-export class ServiciosComponent {
+export class ServiciosComponent implements OnInit {
 
     servicios: any;
-    
 
     constructor(private service: ServServicioService) { }
 
@@ -17,7 +16,6 @@ export class ServiciosComponent {
 
         this.service.getServicios().subscribe(data => {
             this.servicios = data;
-            console.log(data);
         });
 
     }

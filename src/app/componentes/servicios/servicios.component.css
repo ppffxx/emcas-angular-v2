@@ -5,18 +5,12 @@
     margin: 100px 0px 0px 100px;
 }
 
-
 #contenedor-servicios {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     margin: 100px 0px;
-}
-
-
-#contenedor-servicios-oculto {
-  display: none;
 }
 
 .estilos-cards {

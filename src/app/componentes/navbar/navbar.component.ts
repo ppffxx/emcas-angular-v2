@@ -24,7 +24,6 @@ export class NavbarComponent {
       this.sesionServicio.logueo.next(false);
     }
 
-
     this.sesionServicio.logueo.subscribe(data => {
       this.sesion = data;
     })

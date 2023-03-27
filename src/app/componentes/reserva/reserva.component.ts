@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
@@ -15,31 +15,24 @@ import Swal from 'sweetalert2';
   templateUrl: './reserva.component.html',
   styleUrls: ['./reserva.component.css']
 })
-export class ReservaComponent {
+export class ReservaComponent implements OnInit {
 
   servicios: Servicio|undefined;
   usuarioInfo: Usuario|undefined;
+  
   idServicio:number=0;
   idUsuario:number = Number(localStorage.getItem('idUsuario'));
 
   registroReserva:FormGroup = new FormGroup({});
 
-
-
   constructor(private router: Router, private activatedRoute : ActivatedRoute, private service: ServServicioService, private serviceUs: UsuarioService, private fb: FormBuilder, private reservaServicio: ReservaService) {
-
     activatedRoute.params.subscribe( prm => {
       this.idServicio = prm['id'];
       localStorage.setItem('idServicio', ''+this.idServicio+'');
   })
-
-
   }
 
-
   ngOnInit() {
-
-
     this.registroReserva = this.fb.group( {
       nombre: [''],
       apellido:[''],
@@ -47,11 +40,10 @@ export class ReservaComponent {
       fechaReserva:['']
     })
 
-
-
     if(!localStorage.getItem('idUsuario')) {
       this.router.navigate(['/sesion']);
     }
+
 
     this.serviceUs.getUsuarioDetalle(this.idUsuario).subscribe(data => {
       this.usuarioInfo = data;
@@ -67,10 +59,9 @@ export class ReservaComponent {
 
 
   reservar() {
-    
     const reservaJson = {usuario: {idUsuario: this.idUsuario}, servicio: {idServicio: this.idServicio}, fechaReserva: this.registroReserva.value.fechaReserva};
     this.reservaServicio.reservar(reservaJson).pipe(catchError(error => {
-      if(error.status == 409) {
+      if(error.status == 400) {
         Swal.fire({
           icon: 'error',
           title: error.error + '. Revisa si falta algún campo',

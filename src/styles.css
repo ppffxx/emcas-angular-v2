@@ -65,13 +65,12 @@ height: 70px;
 font-weight: 700;
 border-radius: 5px;
 border: 1px solid white;
+padding-left: 10px;
 }
 
 ::placeholder {
   padding-left: 10px;
 }
-
-
 
 .text-area-div {
   display: flex;
@@ -218,6 +217,7 @@ border: 1px solid white;
 .boton-registro-sesion:enabled {
   cursor:pointer;
 }
+
 
 /* ? Estilos para la barra de desplazamiento */
 

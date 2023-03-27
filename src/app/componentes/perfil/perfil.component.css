@@ -125,7 +125,6 @@
     border-color: red;
   }
   
-
   .boton-cancelar {
     height: 85px;
     width: 210px;
@@ -144,14 +143,10 @@
     border-color: black;
   }
 
-
-
-
   input[readonly] {
     color: rgb(153, 153, 153);
     background-color: rgb(224, 224, 224);
 }
-
 
 .eliminar-cuenta {
   font-weight: 700;
