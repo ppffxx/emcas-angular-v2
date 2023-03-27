@@ -18,7 +18,6 @@ export class PerfilComponent implements OnInit {
   datosActualizados:boolean = false;
   usuarioPerfil: Usuario | undefined;
   personaPerfil:FormGroup = new FormGroup({});
-
   usuarioId= Number(localStorage.getItem('idUsuario'));
 
   constructor(private service: UsuarioService, private router: Router, private personaServicio: PersonaService, private fb: FormBuilder, private sesion: ComprobarsesionService) {
@@ -48,18 +47,6 @@ export class PerfilComponent implements OnInit {
 
 
   }
-
-
-  getDetalles() {
-    this.service.getUsuarioDetalle(this.usuarioId).subscribe(data => {
-      this.usuarioPerfil = data;
-      console.log(data);
-      this.personaPerfil.get('nombre')?.setValue(this.usuarioPerfil?.persona?.nombre);
-      this.personaPerfil.get('apellido')?.setValue(this.usuarioPerfil?.persona?.apellido);
-      this.personaPerfil.get('telefono')?.setValue(this.usuarioPerfil?.persona?.telefono);
-    });
-  }
-
   
   actualizarPersona() {
     const perfilaActualizar = {nombre: this.personaPerfil.value.nombre, apellido: this.personaPerfil.value.apellido, telefono: this.personaPerfil.value.telefono}
@@ -72,7 +59,7 @@ export class PerfilComponent implements OnInit {
           timer: 2000
       }).then((result) => {
         if (result) {
-          this.getDetalles();
+          this.ngOnInit();
         }
       })
     })
@@ -87,7 +74,6 @@ export class PerfilComponent implements OnInit {
   }
 
   eliminarConfirmado() {
-    console.log(this.usuarioId);
     this.service.deleteUsuario(this.usuarioId).subscribe(data => {
       this.sesion.logueo.next(false);
       localStorage.removeItem('idUsuario');

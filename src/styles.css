@@ -100,7 +100,21 @@ border: 1px solid white;
   border: none;
   background-color: black;
   color: white;
+  border-radius: 5px;
+}
+
+.boton-form:hover {
+  color: black;
+  background-color: white;
+}
+
+.boton-form:enabled {
   cursor: pointer;
+}
+
+.boton-form:disabled{
+  color: gray;
+  background-color: rgb(43, 43, 43);
 }
 
 .validacionError {
@@ -165,7 +179,6 @@ border: 1px solid white;
   font-weight: 900;
 }
 
-
 .div-form-registro-sesion {
   display: flex;
   flex-direction: column;
@@ -188,11 +201,38 @@ border: 1px solid white;
   background-color: black;
   color: white;
   align-self: center;
-  border-radius: 5px;
-  cursor: pointer;
+  border-radius: 5px; 
 }
 
-.boton-registro:hover {
+.boton-registro-sesion:hover {
   background-color: white;
   color: black;
+  
+}
+
+.boton-registro-sesion:disabled {
+  background-color: rgb(39, 39, 39);
+  color: rgb(187, 187, 187);
+}
+
+.boton-registro-sesion:enabled {
+  cursor:pointer;
+}
+
+/* ? Estilos para la barra de desplazamiento */
+
+body::-webkit-scrollbar {
+  width: 4px;
+          
+}
+
+body::-webkit-scrollbar-track {
+  background: white;
+    
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: gray; 
+  border-radius: 50px;
+  border: 3px solid gray;
 }

@@ -4,6 +4,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { LoginService } from 'src/app/servicios/login.service';
 import { ComprobarsesionService } from 'src/app/servicios/comprobarsesion.service';
 import { catchError, of } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sesion',
@@ -37,13 +38,28 @@ export class SesionComponent {
     const usuarioLogin = {usuario: this.loginUsuario.value.usuario, contrasenia: this.loginUsuario.value.contrasenia, correo: '', repcontrasenia: ''};
     this.loginservicio.login(usuarioLogin).pipe(catchError(error => {
       if(error.status == 400) {
+
+        Swal.fire({
+          icon: 'error',
+          title: error.error,
+          text: 'verifica los campos ingresados',
+          showConfirmButton:false,
+          timer: 3000,
+         })
+
         this.credenciales = error.error;
         this.credencialesBien = true;
       }
       return of (null);
     })).subscribe(data => {
       if(data) {
-        console.log(data);
+        Swal.fire({
+          position: 'bottom-end',
+          text: 'inicio de sesion exitoso',
+          showConfirmButton:false,
+          timer: 1000,
+          timerProgressBar: true,
+        })
         localStorage.setItem('idUsuario', data.idUsuario);
         this.router.navigate(['/']);
         this.sesionServicio.logueo.next(true);

@@ -73,7 +73,7 @@ export class ReservaComponent {
       if(error.status == 409) {
         Swal.fire({
           icon: 'error',
-          title: error.error + '. Revise si falta algún campo',
+          title: error.error + '. Revisa si falta algún campo',
           showConfirmButton: false,
           timer: 2000
         })
@@ -84,8 +84,9 @@ export class ReservaComponent {
         Swal.fire({
           icon: 'success',
           title: 'Reserva creada',
-          text: 'La reserva fue creada exitosamente. Pronto nos pondremos en contacto para coordinar la sesión',
-          confirmButtonText: 'Cerrar',
+          text: 'La reserva fue creada exitosamente. Pronto nos comunicamos con vos',
+          showConfirmButton: false,
+          timer: 3000
         })
         this.router.navigate(['/']);
       }

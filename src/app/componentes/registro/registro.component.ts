@@ -50,8 +50,10 @@ export class RegistroComponent {
     })).subscribe(data => {
       if(data) {
         Swal.fire({
+          icon: 'success',
           title: 'Cuenta creada exitosamente',
-          confirmButtonText: 'Cerrar',
+          showConfirmButton: false,
+          timer: 2500
         })
          this.router.navigate(['/sesion']);
       }
