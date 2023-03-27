@@ -159,3 +159,10 @@
   font-size: 20px;
   margin: 20px;
 }
+
+.datos-actualizados {
+  font-weight: 700;
+  color: green;
+  font-size: 20px;
+  margin: 20px;
+}

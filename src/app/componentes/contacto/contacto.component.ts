@@ -1,13 +1,5 @@
 import { Component } from '@angular/core';
-
-interface ContactoForm
-{
-nombre: string;
-apellido: string;
-correo: string;
-telefono: string;
-mensaje: string;
-}
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 
 @Component({
   selector: 'app-contacto',
@@ -15,7 +7,6 @@ mensaje: string;
   styleUrls: ['./contacto.component.css']
 })
 export class ContactoComponent {
-
 
   formodel = {
     nombre: "",
@@ -26,8 +17,13 @@ export class ContactoComponent {
   }
 
 
-  onSubmit(values:any):void {
-    console.log(values);
+  public sendEmail(e: Event) {
+    emailjs.sendForm('service_1jrfn1h', 'template_wy29ub7', e.target as HTMLFormElement, 'MdSlzJzVzyMyzS4XT')
+      .then((result: EmailJSResponseStatus) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
   }
 
 }

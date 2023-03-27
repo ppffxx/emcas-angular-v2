@@ -18,13 +18,11 @@
                     <label for="correo">CORREO</label>
                     <input id="correo" type="mail" name="correo" readonly value="{{usuarioPerfil?.correo}}">
                     <button type="submit" class="boton-actualizar-datos" (click)="actualizarPersona()" [formGroup]="personaPerfil">ACTUALIZAR DATOS</button>
-                    <!-- <div id="respuesta">
-                        <p id="p-validacion">.</p>
-                    </div> -->
+                    <span *ngIf="datosActualizados" class="datos-actualizados">datos actualizados</span>
                     </div>
             </form>
             <div id="div-botones"><button type="button" class="boton-eliminarcuenta" (click)="eliminarCuenta()" *ngIf="!eliminar">ELIMINAR CUENTA</button>
-                <button type="button" class="boton-confirmar" *ngIf="eliminar">CONFIRMAR</button>
+                <button type="button" class="boton-confirmar" *ngIf="eliminar" (click)="eliminarConfirmado()">CONFIRMAR</button>
                 <button type="button" class="boton-cancelar" *ngIf="eliminar" (click)="cancelarEliminar()">CANCELAR</button></div>
                 <p *ngIf="eliminar" class="eliminar-cuenta">¿Estás seguro? Esta acción no se puede deshacer</p>
         </div>

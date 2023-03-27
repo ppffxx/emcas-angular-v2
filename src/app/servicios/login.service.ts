@@ -13,7 +13,6 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
 
-
   login(usuario: Usuarioregistro): Observable<any> {
     return this.http.post(this.url, usuario);
   }

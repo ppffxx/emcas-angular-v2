@@ -17,4 +17,8 @@ export class UsuarioService {
     return this.http.get(this.url+idUsuario);
   }
 
+  deleteUsuario(idUsuario:number) {
+    return this.http.delete(this.url + `/${idUsuario}`);
+  }
+
 }

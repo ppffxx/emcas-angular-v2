@@ -8,9 +8,7 @@
         <label for="contrasenia">CONTRASEÑA</label>
         <input name="contrasenia" type="password" placeholder="Ingrese su contraseña" id="contrasenia" autocomplete="off" formControlName="contrasenia">
         <span class="validacionError" *ngIf="loginUsuario.get('contrasenia')?.errors?.['required'] && loginUsuario.get('usuario')?.touched">* campo obligatorio</span>
-        <div id="respuesta">
-            <p id="p-validacion">.</p>
-        </div>
+        <span class="validacionError" *ngIf="credencialesBien">{{credenciales}}</span>
         <button type="submit" class="boton-registro-sesion" (click)="loginUsuarios()"[formGroup]="loginUsuario" [disabled]="loginUsuario.invalid">INICIAR SESIÓN</button>
         </div>
 </form>

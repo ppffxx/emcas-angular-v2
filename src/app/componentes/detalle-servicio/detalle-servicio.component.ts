@@ -24,6 +24,7 @@ export class DetalleServicioComponent {
 
   }
 
+  
   ngOnInit() {
     this.service.getServicioDetalle(this.idServicio).subscribe(data => {
         this.servicios = data;

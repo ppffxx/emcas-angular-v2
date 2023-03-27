@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 import { PersonaService } from 'src/app/servicios/persona.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ComprobarsesionService } from 'src/app/servicios/comprobarsesion.service';
 
 @Component({
   selector: 'app-perfil',
@@ -13,13 +14,13 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class PerfilComponent implements OnInit {
 
   eliminar:boolean = false;
-
+  datosActualizados:boolean = false;
   usuarioPerfil: Usuario | undefined;
   personaPerfil:FormGroup = new FormGroup({});
 
   usuarioId= Number(localStorage.getItem('idUsuario'));
 
-  constructor(private service: UsuarioService, private router: Router, private personaServicio: PersonaService, private fb: FormBuilder) {
+  constructor(private service: UsuarioService, private router: Router, private personaServicio: PersonaService, private fb: FormBuilder, private sesion: ComprobarsesionService) {
 
   }  
 
@@ -43,23 +44,17 @@ export class PerfilComponent implements OnInit {
       this.personaPerfil.get('apellido')?.setValue(this.usuarioPerfil?.persona?.apellido);
       this.personaPerfil.get('telefono')?.setValue(this.usuarioPerfil?.persona?.telefono);
     });
-    
+
+
   }
 
   
   actualizarPersona() {
     const perfilaActualizar = {nombre: this.personaPerfil.value.nombre, apellido: this.personaPerfil.value.apellido, telefono: this.personaPerfil.value.telefono}
     this.personaServicio.actualizarPersona(this.usuarioId, perfilaActualizar).subscribe(data => {
-      if(data) {
-        console.log('todo ok');
-      } else {
-        console.log('todo mal');
-      }
+      this.datosActualizados = true;
     })
   }
-  
-
-
 
   eliminarCuenta() {
     this.eliminar = true;
@@ -67,6 +62,15 @@ export class PerfilComponent implements OnInit {
 
   cancelarEliminar() {
     this.eliminar = false;
+  }
+
+  eliminarConfirmado() {
+    console.log(this.usuarioId);
+    this.service.deleteUsuario(this.usuarioId).subscribe(data => {
+      this.sesion.logueo.next(false);
+      localStorage.removeItem('idUsuario');
+      this.router.navigate(['/sesion']);
+    })
   }
 
 }
