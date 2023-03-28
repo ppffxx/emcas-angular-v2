@@ -19,8 +19,6 @@ import { DetalleServicioComponent } from './componentes/detalle-servicio/detalle
 import { ReservaComponent } from './componentes/reserva/reserva.component';
 import { UsuarioService } from './servicios/usuario.service';
 import { NoencontradoComponent } from './componentes/noencontrado/noencontrado.component';
-import { ServiciosadmComponent } from './componentes/admin/serviciosadm/serviciosadm.component';
-import { ReservasComponent } from './componentes/admin/reservas/reservas.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 const appRutas:Routes= [
@@ -32,8 +30,6 @@ const appRutas:Routes= [
   {path: 'contacto', component:ContactoComponent, title: 'Contacto'},
   {path: 'detalle-servicio/:id', component:DetalleServicioComponent, title: 'Detalle'},
   {path: 'reserva/:id', component:ReservaComponent, title: 'Reservar'},
-  {path: 'admin/reservas', component:ReservasComponent, title: 'Reservas'},
-  {path: 'admin/serviciosadm', component:ServiciosadmComponent, title: 'Reservar'},
   {path: '**', component:NoencontradoComponent, title: 'No encontrado'}
 ]
 
@@ -51,8 +47,6 @@ const appRutas:Routes= [
     DetalleServicioComponent,
     ReservaComponent,
     NoencontradoComponent,
-    ServiciosadmComponent,
-    ReservasComponent
   ],
   imports: [
     BrowserModule,

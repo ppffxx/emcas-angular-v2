@@ -16,6 +16,7 @@ export class ContactoComponent {
     telefono: "",
     mensaje: ""
   }
+  
   constructor(private router: Router) {}
 
   public sendEmail(e: Event) {
